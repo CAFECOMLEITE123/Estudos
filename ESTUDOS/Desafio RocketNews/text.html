@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estilizando Texto Inicial em Input</title>
+<style>
+/* Estilo para o input e o texto inicial */
+.input-container {
+  position: relative;
+  width: 200px;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.input-container .initial-text {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #999; /* Cor do texto */
+  font-style: italic; /* Estilo da fonte */
+  pointer-events: none; /* Garante que o texto não seja clicável */
+}
+</style>
+</head>
+<body>
+
+<div class="input-container">
+  <input type="text" placeholder=" " />
+  <span class="initial-text">Texto inicial aqui...</span>
+</div>
+
+</body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var input = document.querySelector('.input-container input');
+    var initialText = document.querySelector('.initial-text');
+  
+    input.addEventListener('input', function() {
+      if (input.value !== '') {
+        initialText.style.display = 'none';
+      } else {
+        initialText.style.display = 'block';
+      }
+    });
+  });
+  </script>
